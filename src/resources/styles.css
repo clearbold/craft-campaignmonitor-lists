@@ -8,6 +8,7 @@ div.clearbold-table-header {
 }
 div.clearbold-table-header > span {
     font-weight: bold;
+    vertical-align: bottom;
 }
 div.clearbold-table-row:nth-of-type(2n-1),
 div.clearbold-table-header:nth-of-type(2n-1) {
@@ -51,6 +52,12 @@ div.clearbold-table-row > span {
     div.clearbold-table-header:nth-of-type(2n-1) > span:last-child {
         background: rgb(235, 237, 239);
         border-right: 0;
+    }
+    .clearbold-cmlists > div > span {
+        width: 12.5%;
+    }
+    .clearbold-cmlists > div > span:nth-of-type(1) {
+        width: 50%;
     }
 }
 
