@@ -1,7 +1,7 @@
 {
     "name": "clearbold/craft-campaignmonitor-lists",
     "description": "View and manage your Campaign Monitor subscriber lists in your Craft CMS control panel.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "type": "craft-plugin",
     "homepage": "https://github.com/clearbold/craft-campaignmonitor-lists",
     "license": "MIT",
@@ -36,6 +36,8 @@
     "extra": {
         "name": "Campaign Monitor Lists",
         "handle": "cm-lists",
+        "hasCpSettings": true,
+        "hasCpSection": true,
         "developer": "Clearbold",
         "developerUrl": "http://clearbold.com/",
         "class": "clearbold\\cmlists\\CmLists"

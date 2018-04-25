@@ -1,6 +1,33 @@
 {% extends "_layouts/cp" %}
-{% set title = "Page Title"|t('app') %}
+{% set title = "Campaign Monitor Subscriber Lists"|t('app') %}
 
 {% block content %}
-    <p>Page content goes here</p>
+    <h2>Subscriber Lists</h2>
+{% set response = craft.cmLists.getLists() %}
+{% if response %}
+
+{% if response.success %}
+
+{% if response.statusCode == 200 %}
+    <ul>
+    {% for list in response.body %}
+        <li>{{ list.ListID }} / {{ list.Name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+
+    <p>Error: Status code {{ response.statusCode }}</p>
+
+{% endif %}
+{% else %}
+
+    <p>Error: {{ response.reason }}</p>
+
+{% endif %}
+{% else %}
+
+    <p>Error: {{ response.reason }}</p>
+
+{% endif %}
+
 {% endblock %}
