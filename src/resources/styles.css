@@ -1,0 +1,26 @@
+div.clearbold-table {
+    display: table;
+    width: 100%;
+}
+div.clearbold-table-row,
+div.clearbold-table-header {
+    display: table-row;
+}
+div.clearbold-table-header > span {
+    font-weight: bold;
+}
+div.clearbold-table-row:nth-of-type(2n-1) > span,
+div.clearbold-table-header:nth-of-type(2n-1) > span {
+    background: rgb(235, 237, 239);
+    border-right: 2px solid rgb(255, 255, 255);
+}
+div.clearbold-table-row:nth-of-type(2n-1) > span:last-child,
+div.clearbold-table-header:nth-of-type(2n-1) > span:last-child {
+    background: rgb(235, 237, 239);
+    border-right: 0;
+}
+div.clearbold-table-row > span,
+div.clearbold-table-header > span {
+    display: table-cell;
+    padding: 4px 8px;
+}

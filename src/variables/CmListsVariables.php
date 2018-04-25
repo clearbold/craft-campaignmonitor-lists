@@ -24,4 +24,9 @@ class CmListsVariable
     {
         return CmLists::getInstance()->campaignmonitor->getLists();
     }
+
+    public function getListStats($listId = '')
+    {
+        return CmLists::getInstance()->campaignmonitor->getListStats($listId);
+    }
 }

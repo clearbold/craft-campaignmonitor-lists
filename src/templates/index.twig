@@ -1,5 +1,6 @@
 {% extends "_layouts/cp" %}
 {% set title = "Campaign Monitor Subscriber Lists"|t('app') %}
+{% do view.registerAssetBundle("clearbold\\cmlists\\CmListsBundle") %}
 
 {% block content %}
     <h2>Subscriber Lists</h2>
@@ -9,11 +10,38 @@
 {% if response.success %}
 
 {% if response.statusCode == 200 %}
-    <ul>
+    <div class="clearbold-table">
+        <div class="clearbold-table-row clearbold-table-header">
+            <span>List</span>
+            <span>Active Subscribers</span>
+            <span>Unsubscribes</span>
+        </div>
     {% for list in response.body %}
-        <li>{{ list.ListID }} / {{ list.Name }}</li>
+        <div class="clearbold-table-row">
+            <span>{{ list.Name }}{# {{ list.ListID }} #}</span>
+{% set responseStats = craft.cmLists.getListStats(list.ListID) %}
+{% if responseStats %}
+
+{% if responseStats.success %}
+
+{% if responseStats.statusCode == 200 %}
+            <span>{{ responseStats.body.TotalActiveSubscribers }}</span>
+            <span>{{ responseStats.body.TotalUnsubscribes }}</span>
+{% else %}
+            <span></span>
+            <span></span>
+{% endif %}
+{% else %}
+            <span></span>
+            <span></span>
+{% endif %}
+{% else %}
+            <span></span>
+            <span></span>
+{% endif %}
+        </div>
     {% endfor %}
-    </ul>
+    </div>
 {% else %}
 
     <p>Error: Status code {{ response.statusCode }}</p>

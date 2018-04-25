@@ -1,8 +1,12 @@
-## 0.1.1 - 2018-04-24
+## 0.1.2 - 2018-04-24
+
+* Pulling in subscriber list stats from Campaign Monitor.
+
+## 0.1.2 - 2018-04-24
 
 * Pulling in subscriber lists from Campaign Monitor.
 
-## 0.1.1 - 2018-04-23
+## 0.1.3 - 2018-04-23
 
 * Minor tweaks to update versioning and facilitate development.
 

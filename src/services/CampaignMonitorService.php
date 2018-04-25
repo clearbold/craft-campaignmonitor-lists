@@ -10,6 +10,7 @@
 namespace clearbold\cmlists\services;
 
 require_once CRAFT_VENDOR_PATH.'/campaignmonitor/createsend-php/csrest_clients.php';
+require_once CRAFT_VENDOR_PATH.'/campaignmonitor/createsend-php/csrest_lists.php';
 
 use clearbold\cmlists\CmLists;
 
@@ -22,7 +23,10 @@ use craft\base\Component;
  */
 class CampaignMonitorService extends Component
 {
-    // protected $settings = CmLists::$plugin->getSettings();
+    /**
+     * @var settings
+     * @todo declare it once
+     */
 
     // Public Methods
     // =========================================================================
@@ -33,7 +37,6 @@ class CampaignMonitorService extends Component
     public function getLists()
     {
         $settings = CmLists::$plugin->getSettings();
-        // var_dump($settings->apiKey); exit;
 
         try {
             $auth = array(
@@ -53,6 +56,40 @@ class CampaignMonitorService extends Component
                     'success' => true,
                     'statusCode' => $result->http_status_code,
                     'body' => $body
+                ];
+            } else {
+                return [
+                    'success' => false,
+                    'statusCode' => $result->http_status_code,
+                    'reason' => $result->response
+                ];
+            }
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'reason' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function getListStats($listId = '')
+    {
+        $settings = CmLists::$plugin->getSettings();
+
+        try {
+            $auth = array(
+                'api_key' => (string)$settings->apiKey);
+            $client = new \CS_REST_Lists(
+                $listId,
+                $auth);
+
+            $result = $client->get_stats();
+
+            if($result->was_successful()) {
+                return [
+                    'success' => true,
+                    'statusCode' => $result->http_status_code,
+                    'body' => $result->response
                 ];
             } else {
                 return [
