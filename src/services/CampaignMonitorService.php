@@ -105,4 +105,73 @@ class CampaignMonitorService extends Component
             ];
         }
     }
+
+    public function getList($listId = '')
+    {
+        $settings = CmLists::$plugin->getSettings();
+
+        try {
+            $auth = array(
+                'api_key' => (string)$settings->apiKey);
+            $client = new \CS_REST_Lists(
+                $listId,
+                $auth);
+
+            $result = $client->get();
+
+            if($result->was_successful()) {
+                return [
+                    'success' => true,
+                    'statusCode' => $result->http_status_code,
+                    'body' => $result->response
+                ];
+            } else {
+                return [
+                    'success' => false,
+                    'statusCode' => $result->http_status_code,
+                    'reason' => $result->response
+                ];
+            }
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'reason' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function getActiveSubscribers($listId = '', $params = []) {
+        // $wrap->get_active_subscribers('Added since', 1, 50, 'email', 'asc');
+        $settings = CmLists::$plugin->getSettings();
+
+        try {
+            $auth = array(
+                'api_key' => (string)$settings->apiKey);
+            $client = new \CS_REST_Lists(
+                $listId,
+                $auth);
+
+            $result = $client->get_active_subscribers('', 1, 10, 'date', 'desc');
+            // var_dump($result->response->Results);
+
+            if($result->was_successful()) {
+                return [
+                    'success' => true,
+                    'statusCode' => $result->http_status_code,
+                    'body' => $result->response->Results
+                ];
+            } else {
+                return [
+                    'success' => false,
+                    'statusCode' => $result->http_status_code,
+                    'reason' => $result->response
+                ];
+            }
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'reason' => $e->getMessage()
+            ];
+        }
+    }
 }

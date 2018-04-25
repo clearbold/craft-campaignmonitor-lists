@@ -1,6 +1,6 @@
 {% extends "_layouts/cp" %}
-{% set title = "Campaign Monitor Subscriber Lists"|t('app') %}
 {% do view.registerAssetBundle("clearbold\\cmlists\\CmListsBundle") %}
+{% set title = "Campaign Monitor Subscriber Lists"|t('app') %}
 
 {% block content %}
     <h2>Subscriber Lists</h2>
@@ -20,7 +20,7 @@
         </div>
     {% for list in response.body %}
         <div class="clearbold-table-row">
-            <span>{{ list.Name }}</span>
+            <span><a href="{{ url('cm-lists/' ~ list.ListID) }}">{{ list.Name }}</a></span>
 {% set responseStats = craft.cmLists.getListStats(list.ListID) %}
 {% if responseStats %}
 

@@ -1,0 +1,168 @@
+{% extends 'cm-lists/lists/_layout' %}
+
+{% set response = craft.cmLists.getList(listId) %}
+{% set title = (response.success) and (response.statusCode == 200) ? response.body.Title : 'Undefined' %}
+
+{% block content %}
+{% set responseStats = craft.cmLists.getListStats(listId) %}
+{% if responseStats %}
+
+{% if responseStats.success %}
+
+{% if responseStats.statusCode == 200 %}
+
+    <div class="clearbold-grid-top-stats">
+        <div><span>{{ responseStats.body.TotalActiveSubscribers }}</span> <span>total active subscribers</span></div>
+        <div><span>{{ responseStats.body.TotalUnsubscribes }}</span> <span>total unsubscribes</span></div>
+        <div><span>{{ responseStats.body.TotalDeleted }}</span> <span>total deleted</span></div>
+        <div><span>{{ responseStats.body.TotalBounces }}</span> <span>total bounces</span></div>
+    </div>
+
+    <div class="clearbold-grid-stats">
+        <div>
+            <h2>Today</h2>
+            <div class="clearbold-table">
+                <div class="clearbold-table-row">
+                    <span>New Active Subscribers</span>
+                    <span>{{ responseStats.body.NewActiveSubscribersToday }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Unsubscribes</span>
+                    <span>{{ responseStats.body.UnsubscribesToday }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Deletes</span>
+                    <span>{{ responseStats.body.DeletedToday }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Bounces</span>
+                    <span>{{ responseStats.body.BouncesToday }}</span>
+                </div>
+            </div>
+        </div>
+        <div>
+{% set responseActive = craft.cmLists.getActiveSubscribers(listId) %}
+            <h2>Recent Subscribers</h2>
+            <div class="clearbold-table">
+                {# <div class="clearbold-table-row clearbold-table-header">
+                    <span>Email</span>
+                    <span>Name</span>
+                    <span>Date</span>
+                </div> #}
+        {% for subscriber in responseActive.body %}
+                <div class="clearbold-table-row">
+                    <span>{{ subscriber.EmailAddress }}</span>
+                    {# <span>{{ subscriber.Name }}</span> #}
+                    <span style="text-align: right; white-space: nowrap;">{{ subscriber.Date|date("M d, Y") }}</span>
+                </div>
+        {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="clearbold-grid-stats">
+        <div>
+            <h2>Yesterday</h2>
+            <div class="clearbold-table">
+                <div class="clearbold-table-row">
+                    <span>New Active Subscribers</span>
+                    <span>{{ responseStats.body.NewActiveSubscribersYesterday }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Unsubscribes</span>
+                    <span>{{ responseStats.body.UnsubscribesYesterday }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Deletes</span>
+                    <span>{{ responseStats.body.DeletedYesterday }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Bounces</span>
+                    <span>{{ responseStats.body.BouncesYesterday }}</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Week</h2>
+            <div class="clearbold-table">
+                <div class="clearbold-table-row">
+                    <span>New Active Subscribers</span>
+                    <span>{{ responseStats.body.NewActiveSubscribersThisWeek }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Unsubscribes</span>
+                    <span>{{ responseStats.body.UnsubscribesThisWeek }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Deletes</span>
+                    <span>{{ responseStats.body.DeletedThisWeek }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Bounces</span>
+                    <span>{{ responseStats.body.BouncesThisWeek }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearbold-grid-stats">
+        <div>
+            <h2>Month</h2>
+            <div class="clearbold-table">
+                <div class="clearbold-table-row">
+                    <span>New Active Subscribers</span>
+                    <span>{{ responseStats.body.NewActiveSubscribersThisMonth }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Unsubscribes</span>
+                    <span>{{ responseStats.body.UnsubscribesThisMonth }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Deletes</span>
+                    <span>{{ responseStats.body.DeletedThisMonth }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Bounces</span>
+                    <span>{{ responseStats.body.BouncesThisMonth }}</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Year</h2>
+            <div class="clearbold-table">
+                <div class="clearbold-table-row">
+                    <span>New Active Subscribers</span>
+                    <span>{{ responseStats.body.NewActiveSubscribersThisYear }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Unsubscribes</span>
+                    <span>{{ responseStats.body.UnsubscribesThisYear }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Deletes</span>
+                    <span>{{ responseStats.body.DeletedThisYear }}</span>
+                </div>
+                <div class="clearbold-table-row">
+                    <span>Bounces</span>
+                    <span>{{ responseStats.body.BouncesThisYear }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% else %}
+
+    <p>Error: Status code {{ response.statusCode }}</p>
+
+{% endif %}
+{% else %}
+
+    <p>Error: {{ response.reason }}</p>
+
+{% endif %}
+{% else %}
+
+    <p>Error: {{ response.reason }}</p>
+
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,7 @@
+{% extends '_layouts/cp' %}
+
+{% do view.registerAssetBundle("clearbold\\cmlists\\CmListsBundle") %}
+
+{% set crumbs = {
+    0: { label: 'Campaign Monitor Subscriber Lists', url: url('cm-lists') }
+} %}

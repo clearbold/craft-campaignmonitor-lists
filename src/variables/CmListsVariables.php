@@ -29,4 +29,14 @@ class CmListsVariable
     {
         return CmLists::getInstance()->campaignmonitor->getListStats($listId);
     }
+
+    public function getList($listId = '')
+    {
+        return CmLists::getInstance()->campaignmonitor->getList($listId);
+    }
+
+    public function getActiveSubscribers($listId = '')
+    {
+        return CmLists::getInstance()->campaignmonitor->getActiveSubscribers($listId);
+    }
 }

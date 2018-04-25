@@ -17,6 +17,7 @@ use craft\events\PluginEvent;
 use craft\web\UrlManager;
 use craft\web\twig\variables\CraftVariable;
 use craft\events\RegisterComponentTypesEvent;
+use craft\events\RegisterUrlRulesEvent;
 use craft\helpers\UrlHelper;
 use yii\base\Event;
 
@@ -42,6 +43,14 @@ class CmLists extends Plugin
         $this->setComponents([
             'campaignmonitor' => \clearbold\cmlists\services\CampaignMonitorService::class,
         ]);
+
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_CP_URL_RULES,
+            function (RegisterUrlRulesEvent $event) {
+                $event->rules['cm-lists/<listId>'] = ['template' => 'cm-lists/lists/details'];
+            }
+        );
 
         Event::on(
             CraftVariable::class,
