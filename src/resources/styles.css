@@ -18,26 +18,28 @@ div.clearbold-table-row > span {
     display: table-cell;
     padding: 4px 8px;
 }
-@media all and (max-width: 599px) {
-    div.clearbold-table-row {
-        display: block;
+@media all and (max-width: 673px) {
+    div.clearbold-table {
         margin-right: -8px;
         margin-left: -8px;
+    }
+    div.clearbold-table-big div.clearbold-table-row {
+        display: block;
         padding-top: 8px;
         padding-bottom: 8px;
     }
-    div.clearbold-table-header {
+    div.clearbold-table-big div.clearbold-table-header {
         display: none;
     }
-    div.clearbold-table-row > span {
+    div.clearbold-table-big div.clearbold-table-row > span {
         border-right: 0;
         display: block;
     }
-    div.clearbold-table-row > span:nth-of-type(1) {
+    div.clearbold-table-big div.clearbold-table-row > span:nth-of-type(1) {
         font-weight: bold;
     }
 }
-@media all and (min-width: 600px) {
+@media all and (min-width: 674px) {
     span.clearbold-table-label {
         display: none;
     }
@@ -94,6 +96,7 @@ div.clearbold-table-row > span {
         width: 60%;
     }
     .clearbold-grid-stats div.clearbold-table-row > span:nth-of-type(2) {
+        text-align: right;
         width: 40%;
     }
 @media all and (max-width: 998px) {
@@ -106,6 +109,13 @@ div.clearbold-table-row > span {
         grid-template-columns: 1fr;
     }
     .clearbold-grid-stats {
-        grid-template-columns: 1fr;
+        display: block;
+        margin-bottom: 0px;
     }
+        .clearbold-grid-stats h2 {
+            padding-left: 0;
+        }
+        .clearbold-grid-stats .clearbold-table {
+            margin-bottom: 20px;
+        }
 }
