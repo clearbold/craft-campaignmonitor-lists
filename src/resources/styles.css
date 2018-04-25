@@ -9,18 +9,45 @@ div.clearbold-table-header {
 div.clearbold-table-header > span {
     font-weight: bold;
 }
-div.clearbold-table-row:nth-of-type(2n-1) > span,
-div.clearbold-table-header:nth-of-type(2n-1) > span {
+div.clearbold-table-row:nth-of-type(2n-1),
+div.clearbold-table-header:nth-of-type(2n-1) {
     background: rgb(235, 237, 239);
     border-right: 2px solid rgb(255, 255, 255);
 }
-div.clearbold-table-row:nth-of-type(2n-1) > span:last-child,
-div.clearbold-table-header:nth-of-type(2n-1) > span:last-child {
-    background: rgb(235, 237, 239);
-    border-right: 0;
-}
-div.clearbold-table-row > span,
-div.clearbold-table-header > span {
+div.clearbold-table-row > span {
     display: table-cell;
     padding: 4px 8px;
+}
+@media all and (max-width: 599px) {
+    div.clearbold-table-row {
+        display: block;
+        margin-right: -8px;
+        margin-left: -8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    div.clearbold-table-header {
+        display: none;
+    }
+    div.clearbold-table-row > span {
+        border-right: 0;
+        display: block;
+    }
+    div.clearbold-table-row > span:nth-of-type(1) {
+        font-weight: bold;
+    }
+}
+@media all and (min-width: 600px) {
+    span.clearbold-table-label {
+        display: none;
+    }
+    div.clearbold-table-row:nth-of-type(2n-1) > span,
+    div.clearbold-table-header:nth-of-type(2n-1) > span {
+        border-right: 2px solid rgb(255, 255, 255);
+    }
+    div.clearbold-table-row:nth-of-type(2n-1) > span:last-child,
+    div.clearbold-table-header:nth-of-type(2n-1) > span:last-child {
+        background: rgb(235, 237, 239);
+        border-right: 0;
+    }
 }

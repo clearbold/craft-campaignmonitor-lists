@@ -13,20 +13,24 @@
     <div class="clearbold-table">
         <div class="clearbold-table-row clearbold-table-header">
             <span>List</span>
-            <span>Active Subscribers</span>
-            <span>Unsubscribes</span>
+            <span>Today</span>
+            <span>Yesterday</span>
+            <span>Total Active Subscribers</span>
+            <span>Total Unsubscribes</span>
         </div>
     {% for list in response.body %}
         <div class="clearbold-table-row">
-            <span>{{ list.Name }}{# {{ list.ListID }} #}</span>
+            <span>{{ list.Name }} {{ list.Name }} {{ list.Name }} </span>
 {% set responseStats = craft.cmLists.getListStats(list.ListID) %}
 {% if responseStats %}
 
 {% if responseStats.success %}
 
 {% if responseStats.statusCode == 200 %}
-            <span>{{ responseStats.body.TotalActiveSubscribers }}</span>
-            <span>{{ responseStats.body.TotalUnsubscribes }}</span>
+            <span><span class="clearbold-table-label">Today: </span>{{ responseStats.body.NewActiveSubscribersToday }}</span>
+            <span><span class="clearbold-table-label">Yesterday: </span>{{ responseStats.body.NewActiveSubscribersYesterday }}</span>
+            <span><span class="clearbold-table-label">Total Active Subscribers: </span>{{ responseStats.body.TotalActiveSubscribers }}</span>
+            <span><span class="clearbold-table-label">Total Unsubscribes: </span>{{ responseStats.body.TotalUnsubscribes }}</span>
 {% else %}
             <span></span>
             <span></span>
