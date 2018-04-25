@@ -20,7 +20,7 @@
         </div>
     {% for list in response.body %}
         <div class="clearbold-table-row">
-            <span>{{ list.Name }} {{ list.Name }} {{ list.Name }} </span>
+            <span>{{ list.Name }}</span>
 {% set responseStats = craft.cmLists.getListStats(list.ListID) %}
 {% if responseStats %}
 
