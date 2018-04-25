@@ -1,3 +1,8 @@
+## 1.0.1 - 2018-04-25
+
+* Added list details page with all stats available.
+* 1.0.1 cleaned up responsive styles.
+
 ## 0.1.3 - 2018-04-24
 
 * Pulling in subscriber list stats from Campaign Monitor.
