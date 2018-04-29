@@ -11,3 +11,36 @@ composer require clearbold/craft-campaignmonitor-lists
 To use:
 
 After installing and enabling the plugin, you'll need to enter your **API Key** and **Client ID** from your Campaign Monitor account under *Settings > Campaign Monitor Service*.
+
+### Subscribe Form
+
+You can implement a subscribe form in your templates using the following code:
+
+```
+    <form method="post" action="" accept-charset="UTF-8">
+
+      {{ csrfInput() }}
+      <input type="hidden" name="action" value="cm-lists/subscribe" />
+      <input type="hidden" name="redirect" value="{{ 'foo/bar'|hash }}" />
+      <input type="hidden" name="listId" value="{{ '06b0df6a69364abc3ada4c988af0bbc4'|hash }}" />
+
+      <label>Email Address</label>
+      <input type="email" name="email" placeholder="joe.bloggs@email.com" />
+
+      {# Use firstname + lastname fields, or fullname #}
+      <label>First Name</label>
+      <input type="text" name="firstname" placeholder="Joe" />
+
+      <label>Last Name</label>
+      <input type="text" name="lastname" placeholder="Bloggs" />
+
+      {# <label>Full Name</label>
+      <input type="text" name="fullname" placeholder="Joe Bloggs" /> #}
+
+      <label>Custom Field</label>
+      <input type="text" name="fields[CustomFieldCampaignMonitor]" placeholder="Some Value" value="Some Value" />
+
+      <input type="submit" value="Subscribe" />
+
+    </form>
+```
