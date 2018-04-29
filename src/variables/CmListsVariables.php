@@ -9,7 +9,6 @@
 
 namespace clearbold\cmlists\variables;
 use clearbold\cmlists\CmLists;
-use clearbold\cmlists\services\HttpService;
 use Craft;
 use craft\helpers\UrlHelper;
 /**

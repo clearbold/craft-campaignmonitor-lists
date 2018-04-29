@@ -6,9 +6,9 @@
 
 namespace clearbold\cmlists;
 
-use clearbold\cmlists\services\CampaignMonitorService;
+use clearbold\cmservice\services\CampaignMonitorService;
 use clearbold\cmlists\variables\CmListsVariable;
-use clearbold\cmlists\models\Settings;
+// use clearbold\cmlists\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -41,7 +41,7 @@ class CmLists extends Plugin
         self::$plugin = $this;
 
         $this->setComponents([
-            'campaignmonitor' => \clearbold\cmlists\services\CampaignMonitorService::class,
+            'campaignmonitor' => \clearbold\cmservice\services\CampaignMonitorService::class,
         ]);
 
         Event::on(
@@ -72,15 +72,15 @@ class CmLists extends Plugin
         );
     }
 
-    protected function createSettingsModel()
-    {
-        return new \clearbold\cmlists\models\Settings();
-    }
+    // protected function createSettingsModel()
+    // {
+    //     return new \clearbold\cmlists\models\Settings();
+    // }
 
-    protected function settingsHtml()
-    {
-        return \Craft::$app->getView()->renderTemplate('cm-lists/settings', [
-            'settings' => $this->getSettings()
-        ]);
-    }
+    // protected function settingsHtml()
+    // {
+    //     return \Craft::$app->getView()->renderTemplate('cm-lists/settings', [
+    //         'settings' => $this->getSettings()
+    //     ]);
+    // }
 }

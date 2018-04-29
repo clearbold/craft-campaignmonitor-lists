@@ -10,4 +10,4 @@ composer require clearbold/craft-campaignmonitor-lists
 
 To use:
 
-After installing and enabling the plugin, you'll need to enter your **API Key** and **Client ID** from your Campaign Monitor account under *Settings > Campaign Monitor Lists*.
+After installing and enabling the plugin, you'll need to enter your **API Key** and **Client ID** from your Campaign Monitor account under *Settings > Campaign Monitor Service*.
