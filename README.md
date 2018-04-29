@@ -22,7 +22,7 @@ You can implement a subscribe form in your templates using the following code:
       {{ csrfInput() }}
       <input type="hidden" name="action" value="cm-lists/subscribe" />
       <input type="hidden" name="redirect" value="{{ 'foo/bar'|hash }}" />
-      <input type="hidden" name="listId" value="{{ '06b0df6a69364abc3ada4c988af0bbc4'|hash }}" />
+      <input type="hidden" name="listId" value="{{ 'aaaaallllliiiiissssstttttiiiiiddddd'|hash }}" />
 
       <label>Email Address</label>
       <input type="email" name="email" placeholder="joe.bloggs@email.com" />
