@@ -1,5 +1,7 @@
 # Campaign Monitor Lists
 
+## Installation
+
 Campaign Monitor Lists allows you to view the latest stats and subscribers for your Campaign Monitor lists. More features to come, including list management features!
 
 To install:
@@ -8,13 +10,17 @@ To install:
 composer require clearbold/craft-campaignmonitor-lists
 ```
 
+## Usage
+
 To use:
 
 After installing and enabling the plugin, you'll need to enter your **API Key** and **Client ID** from your Campaign Monitor account under *Settings > Campaign Monitor Service*.
 
+After doing so, you can navigate to *Campaign Monitor Lists* in your control panel's sidebar to view your stats. Note that data is fetched in real time; response time is based on Campaign Monitor's API.
+
 ### Subscribe Form
 
-You can implement a subscribe form in your templates using the following code:
+You can implement a subscribe form in your templates using the following code. Note that **Resubscribe** will be set to **true**.
 
 ```
     <form method="post" action="" accept-charset="UTF-8">
@@ -44,3 +50,8 @@ You can implement a subscribe form in your templates using the following code:
 
     </form>
 ```
+
+### Roadmap
+
+* Review and support additional Craft fieldtypes in the subscribe form.
+* Review and support additional Campaign Monitor fieldtypes (Number, Radio (Multi-One), Checklist (Multi-Many), Date, Country, US States)
