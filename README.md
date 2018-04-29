@@ -1,8 +1,8 @@
 # Campaign Monitor Lists
 
-## Installation
-
 Campaign Monitor Lists allows you to view the latest stats and subscribers for your Campaign Monitor lists. More features to come, including list management features!
+
+## Installation
 
 To install:
 
@@ -53,5 +53,5 @@ You can implement a subscribe form in your templates using the following code. N
 
 ## Roadmap
 
-* Review and support additional Craft fieldtypes in the subscribe form.
-* Review and support additional Campaign Monitor fieldtypes (Number, Radio (Multi-One), Checklist (Multi-Many), Date, Country, US States)
+* [ ] Review and support additional Craft fieldtypes in the subscribe form.
+* [ ] Review and support additional Campaign Monitor fieldtypes (Number, Radio (Multi-One), Checklist (Multi-Many), Date, Country, US States)
