@@ -1,3 +1,7 @@
+## 1.0.2 - 2018-04-29
+
+* Updates to use CM Service instead of Lists/Service and consolidate settings.
+
 ## 1.0.1 - 2018-04-25
 
 * Added list details page with all stats available.
