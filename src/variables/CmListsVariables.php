@@ -10,7 +10,6 @@
 namespace clearbold\cmlists\variables;
 use clearbold\cmlists\CmLists;
 use Craft;
-use craft\helpers\UrlHelper;
 /**
  * @author    Mark Reeves
  * @since     0.1.1
@@ -19,7 +18,7 @@ class CmListsVariable
 {
     // Public Methods
     // =========================================================================
-    public function getLists($params = [])
+    public function getLists()
     {
         return CmLists::getInstance()->campaignmonitor->getLists();
     }

@@ -8,17 +8,13 @@ namespace clearbold\cmlists;
 
 use clearbold\cmservice\services\CampaignMonitorService;
 use clearbold\cmlists\variables\CmListsVariable;
-// use clearbold\cmlists\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
-use craft\services\Plugins;
-use craft\events\PluginEvent;
 use craft\web\UrlManager;
 use craft\web\twig\variables\CraftVariable;
 use craft\events\RegisterComponentTypesEvent;
 use craft\events\RegisterUrlRulesEvent;
-use craft\helpers\UrlHelper;
 use yii\base\Event;
 
 /**
@@ -71,16 +67,4 @@ class CmLists extends Plugin
             __METHOD__
         );
     }
-
-    // protected function createSettingsModel()
-    // {
-    //     return new \clearbold\cmlists\models\Settings();
-    // }
-
-    // protected function settingsHtml()
-    // {
-    //     return \Craft::$app->getView()->renderTemplate('cm-lists/settings', [
-    //         'settings' => $this->getSettings()
-    //     ]);
-    // }
 }
