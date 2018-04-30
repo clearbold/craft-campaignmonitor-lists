@@ -1,3 +1,7 @@
+## 1.1.1 - 2018-04-29
+
+Added support for unsubscribe forms in front-end templates.
+
 ## 1.1.0 - 2018-04-29
 
 Added support for subscribe forms in front-end templates.
