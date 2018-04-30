@@ -51,6 +51,24 @@ You can implement a subscribe form in your templates using the following code. N
     </form>
 ```
 
+For an unsubscribe form, use:
+
+```
+    <form method="post" action="" accept-charset="UTF-8">
+
+      {{ csrfInput() }}
+      <input type="hidden" name="action" value="cm-lists/unsubscribe" />
+      <input type="hidden" name="redirect" value="{{ 'foo/bar'|hash }}" />
+      <input type="hidden" name="listId" value="{{ 'aaaaallllliiiiissssstttttiiiiiddddd'|hash }}" />
+
+      <label>Email Address</label>
+      <input type="email" name="email" placeholder="joe.bloggs@email.com" />
+
+      <input type="submit" value="Unsubscribe" />
+
+    </form>
+```
+
 ## Roadmap
 
 * [ ] Review and support additional Craft fieldtypes in the subscribe form.
