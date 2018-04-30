@@ -55,5 +55,5 @@ You can implement a subscribe form in your templates using the following code. N
 
 * [ ] Review and support additional Craft fieldtypes in the subscribe form.
 * [ ] Review and support additional Campaign Monitor fieldtypes (Number, Radio (Multi-One), Checklist (Multi-Many), Date, Country, US States)
-* [ ] Support an unsubscribe form
+* [x] Support an unsubscribe form
 * [ ] Support a preference center form
