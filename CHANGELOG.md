@@ -1,3 +1,7 @@
+## 1.1.2 - 2018-06-18
+
+Fixes for empty fields in subscribe form.
+
 ## 1.1.1 - 2018-04-29
 
 Added support for unsubscribe forms in front-end templates.

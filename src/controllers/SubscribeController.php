@@ -38,25 +38,40 @@ class SubscribeController extends Controller
         $redirect =  $request->getRequiredBodyParam('redirect') ? Craft::$app->security->validateData($request->post('redirect')) : null;
 
         $additionalFields = array();
-        foreach($request->getParam('fields') as $key => $value) {
-            $email = $request->getParam('email');
-            $fullName = (null !==$request->getParam('firstname')) ? $request->getParam('firstname') . ' ' . $request->getParam('lastname') : $request->getParam('fullname');
-            if ($key != 'email' && $key != 'firstname' && $key != 'lastname' && $key != 'fullname')
-            {
-                $additionalFields[] = array(
-                    'Key' => $key,
-                    'Value' => $value
-                );
+        $email = $request->getParam('email');
+        $fullName = '';
+        if ($request->getParam('fullname') !== null)
+            $fullName = $request->getParam('fullname');
+        if ($request->getParam('firstname') !== null)
+            $fullName = $request->getParam('firstname');
+        if ($request->getParam('lastname') !== null)
+            $fullName .= ' ' . $request->getParam('lastname');
+
+        if ($request->getParam('fields') !== null)
+        {
+            foreach($request->getParam('fields') as $key => $value) {
+                if ($key != 'email' && $key != 'firstname' && $key != 'lastname' && $key != 'fullname')
+                {
+                    $additionalFields[] = array(
+                        'Key' => $key,
+                        'Value' => $value
+                    );
+                }
             }
-            $subscriber = array(
-                'EmailAddress' => $email,
-                'Name' => $fullName,
-                'CustomFields' => $additionalFields,
-                'Resubscribe' => true
-            );
         }
 
-        $response = CmLists::getInstance()->campaignmonitor->addSubscriber($listId, $subscriber);
+        $subscriber = array(
+            'EmailAddress' => $email,
+            'Name' => $fullName,
+            'CustomFields' => $additionalFields,
+            'Resubscribe' => true
+        );
+
+        var_dump($subscriber); exit;
+
+        if ($request->getParam('email') !== null) {
+            $response = CmLists::getInstance()->campaignmonitor->addSubscriber($listId, $subscriber);
+        }
 
         return $request->getBodyParam('redirect') ? $this->redirectToPostedUrl() : $this->asJson($response);
     }
