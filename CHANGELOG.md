@@ -1,3 +1,8 @@
+## 1.1.3 - 2018-07-03
+### Fixed issue [#2]
+
+[#2]: https://github.com/clearbold/craft-campaignmonitor-lists/issues/2
+
 ## 1.1.2 - 2018-06-18
 
 Fixes for empty fields in subscribe form.
