@@ -35,7 +35,8 @@ class SubscribeController extends Controller
 
         // Fetch list id from hidden input
         $listId = $request->getRequiredBodyParam('listId') ? Craft::$app->security->validateData($request->post('listId')) : null;
-        $redirect =  $request->getRequiredBodyParam('redirect') ? Craft::$app->security->validateData($request->post('redirect')) : null;
+        // $redirect =  $request->getRequiredBodyParam('redirect') ? Craft::$app->security->validateData($request->post('redirect')) : null;
+        $redirect =  $request->getParam('redirect') ? Craft::$app->security->validateData($request->post('redirect')) : null;
 
         $additionalFields = array();
         $email = $request->getParam('email');
@@ -66,8 +67,6 @@ class SubscribeController extends Controller
             'CustomFields' => $additionalFields,
             'Resubscribe' => true
         );
-
-        var_dump($subscriber); exit;
 
         if ($request->getParam('email') !== null) {
             $response = CmLists::getInstance()->campaignmonitor->addSubscriber($listId, $subscriber);
