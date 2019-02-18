@@ -1,3 +1,7 @@
+## 1.1.4 - 2019-02-19
+
+Updated Variable class filename to match convention.
+
 ## 1.1.3 - 2018-07-03
 ### Fixed issue [#2]
 
