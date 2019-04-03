@@ -38,7 +38,7 @@ class CmLists extends Plugin
 
         $this->setComponents([
             'campaignmonitor' => \clearbold\cmservice\services\CampaignMonitorService::class,
-            'cmList' =>  \clearbold\cmlists\services\ListService::class
+            'cmListService' =>  \clearbold\cmlists\services\ListService::class
         ]);
 
         Event::on(

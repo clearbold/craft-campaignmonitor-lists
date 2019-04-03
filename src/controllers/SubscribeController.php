@@ -71,7 +71,7 @@ class SubscribeController extends Controller
         //     $response = CmLists::getInstance()->campaignmonitor->addSubscriber($listId, $subscriber);
         // }
 
-        $response = CmLists::getInstance()->cmList->subscribe($listId, $redirect, $email, $fullName, $additionalFields);
+        $response = CmLists::getInstance()->cmListService->subscribe($listId, $redirect, $email, $fullName, $additionalFields);
 
         return $request->getBodyParam('redirect') ? $this->redirectToPostedUrl() : $this->asJson($response);
     }
