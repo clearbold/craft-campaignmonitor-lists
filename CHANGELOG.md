@@ -1,3 +1,7 @@
+## 1.1.5 - 2019-04-03
+
+Moved subscribe functionality from controller to service.
+
 ## 1.1.4 - 2019-02-19
 
 Updated Variable class filename to match convention.

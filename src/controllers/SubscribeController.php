@@ -35,7 +35,6 @@ class SubscribeController extends Controller
 
         // Fetch list id from hidden input
         $listId = $request->getRequiredBodyParam('listId') ? Craft::$app->security->validateData($request->post('listId')) : null;
-        // $redirect =  $request->getRequiredBodyParam('redirect') ? Craft::$app->security->validateData($request->post('redirect')) : null;
         $redirect =  $request->getParam('redirect') ? Craft::$app->security->validateData($request->post('redirect')) : null;
 
         $additionalFields = array();
@@ -61,16 +60,18 @@ class SubscribeController extends Controller
             }
         }
 
-        $subscriber = array(
-            'EmailAddress' => $email,
-            'Name' => $fullName,
-            'CustomFields' => $additionalFields,
-            'Resubscribe' => true
-        );
+        // $subscriber = array(
+        //     'EmailAddress' => $email,
+        //     'Name' => $fullName,
+        //     'CustomFields' => $additionalFields,
+        //     'Resubscribe' => true
+        // );
 
-        if ($request->getParam('email') !== null) {
-            $response = CmLists::getInstance()->campaignmonitor->addSubscriber($listId, $subscriber);
-        }
+        // if ($request->getParam('email') !== null) {
+        //     $response = CmLists::getInstance()->campaignmonitor->addSubscriber($listId, $subscriber);
+        // }
+
+        $response = CmLists::getInstance()->cmList->subscribe($listId, $redirect, $email, $fullName, $additionalFields);
 
         return $request->getBodyParam('redirect') ? $this->redirectToPostedUrl() : $this->asJson($response);
     }
