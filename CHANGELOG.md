@@ -1,3 +1,7 @@
+## 1.1.7 - 2019-04-29
+
+Bug fix: $redirect is not used in ListService/Subscribe function and was removed.
+
 ## 1.1.5 - 2019-04-03
 
 Moved subscribe functionality from controller to service.
