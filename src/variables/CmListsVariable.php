@@ -37,4 +37,9 @@ class CmListsVariable
     {
         return CmLists::getInstance()->campaignmonitor->getActiveSubscribers($listId);
     }
+
+    public function getListsForEmail($email)
+    {
+        return CmLists::getInstance()->campaignmonitor->getListsForEmail($email);
+    }
 }
