@@ -1,3 +1,7 @@
+## 1.1.8 - 2020-01-07
+
+Merged getListsForEmail function
+
 ## 1.1.7 - 2019-04-29
 
 Bug fix: $redirect is not used in ListService/Subscribe function and was removed.
