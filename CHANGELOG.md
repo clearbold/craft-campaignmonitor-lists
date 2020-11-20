@@ -1,3 +1,11 @@
+## 1.1.10 - 2020-11-20
+
+* Updated campaignmonitor/createsend-php requirement to 6.1.1
+
+## 1.1.9 - 2020-01-14
+
+* Updated Craft version
+
 ## 1.1.8 - 2020-01-07
 
 Merged getListsForEmail function
