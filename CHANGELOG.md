@@ -1,3 +1,7 @@
+## 1.1.11 - 2020-11-24
+
+* Added consent to track per CM requirements in latest API library
+
 ## 1.1.10 - 2020-11-20
 
 * Updated campaignmonitor/createsend-php requirement to 6.1.1

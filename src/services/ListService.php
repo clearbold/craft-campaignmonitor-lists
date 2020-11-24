@@ -33,6 +33,8 @@ class ListService extends Component
             'EmailAddress' => $email,
             'Name' => $fullName,
             'CustomFields' => $additionalFields,
+            'Resubscribe' => true,
+            'ConsentToTrack' => 'yes',
             'Resubscribe' => true
         );
 
