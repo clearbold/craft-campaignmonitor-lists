@@ -47,6 +47,11 @@ class SubscribeController extends Controller
         if ($request->getParam('lastname') !== null)
             $fullName .= ' ' . $request->getParam('lastname');
 
+        $honeypot = false;
+        if ($request->getParam('field-7726') !== null
+            and strlen($request->getParam('field-7726')) > 0)
+            $honeypot = true;
+
         if ($request->getParam('fields') !== null)
         {
             foreach($request->getParam('fields') as $key => $value) {
@@ -71,7 +76,10 @@ class SubscribeController extends Controller
         //     $response = CmLists::getInstance()->campaignmonitor->addSubscriber($listId, $subscriber);
         // }
 
-        $response = CmLists::getInstance()->cmListService->subscribe($listId, $email, $fullName, $additionalFields);
+        if (!$honeypot)
+            $response = CmLists::getInstance()->cmListService->subscribe($listId, $email, $fullName, $additionalFields);
+        else
+            Craft::info("🚫 spam blocked: $email", __METHOD__);
 
         return $request->getBodyParam('redirect') ? $this->redirectToPostedUrl() : $this->asJson($response);
     }
