@@ -51,6 +51,9 @@ class SubscribeController extends Controller
         if ($request->getParam('field-7726') !== null
             and strlen($request->getParam('field-7726')) > 0)
             $honeypot = true;
+        if ($request->getParam('email-7726') !== null
+            and strlen($request->getParam('email-7726')) > 0)
+            $honeypot = true;
 
         if ($request->getParam('fields') !== null)
         {
