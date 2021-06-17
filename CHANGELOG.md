@@ -1,3 +1,7 @@
+## 1.1.12 - 2021-06-17
+
+* Merged in better CM spam response logging
+
 ## 1.1.11 - 2020-11-24
 
 * Added consent to track per CM requirements in latest API library
