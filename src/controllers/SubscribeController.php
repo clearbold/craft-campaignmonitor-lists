@@ -79,10 +79,17 @@ class SubscribeController extends Controller
         //     $response = CmLists::getInstance()->campaignmonitor->addSubscriber($listId, $subscriber);
         // }
 
-        if (!$honeypot)
+        if (!$honeypot) {
             $response = CmLists::getInstance()->cmListService->subscribe($listId, $email, $fullName, $additionalFields);
-        else
-            Craft::info("🚫 spam blocked: $email", __METHOD__);
+        }
+        else {
+            // Nothing to see here. Report it and pretend nothing bad happened.
+            Craft::info("Campaign Monitor spam blocked: $email", __METHOD__);
+            $response = [
+                "success" => true, 
+                "statusCode" => 200
+            ];
+        }
 
         return $request->getBodyParam('redirect') ? $this->redirectToPostedUrl() : $this->asJson($response);
     }
