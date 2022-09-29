@@ -1,3 +1,6 @@
+> **Note**
+> I'm happy to review and approve pull requests to update this plugin for Craft 4, but am not actively supporting it.
+
 # Campaign Monitor Lists
 
 Campaign Monitor Lists allows you to view the latest stats and subscribers for your Campaign Monitor lists. More features to come, including list management features!
