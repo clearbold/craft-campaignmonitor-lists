@@ -22,23 +22,13 @@
     "require": {
         "craftcms/cms": "^3.4.0|^4.0.0",
         "campaignmonitor/createsend-php": "^6.1.1",
-        "clearbold/craft-campaignmonitor-service": "*"
+        "clearbold/craft-campaignmonitor-service": "^2.0.0"
     },
     "autoload": {
         "psr-4": {
           "clearbold\\cmlists\\": "src/",
-          "clearbold\\CmService\\": "../craft-campaignmonitor-service/"
         }
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../craft-campaignmonitor-service/",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
     "support": {
         "docs": "https://github.com/clearbold/craft-campaignmonitor-lists",
         "source": "https://github.com/clearbold/craft-campaignmonitor-lists",
