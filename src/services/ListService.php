@@ -25,7 +25,7 @@ class ListService extends Component
     /*
      * @return mixed
      */
-    public function subscribe(string $listId, string $email, string $fullName, array $additionalFields)
+    public function subscribe(string $listId, string $email, string $fullName, array $additionalFields): array
     {
         $response = [];
 

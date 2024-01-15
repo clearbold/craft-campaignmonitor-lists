@@ -18,27 +18,27 @@ class CmListsVariable
 {
     // Public Methods
     // =========================================================================
-    public function getLists()
+    public function getLists(): array
     {
         return CmLists::getInstance()->campaignmonitor->getLists();
     }
 
-    public function getListStats($listId = '')
+    public function getListStats($listId = ''): array
     {
         return CmLists::getInstance()->campaignmonitor->getListStats($listId);
     }
 
-    public function getList($listId = '')
+    public function getList($listId = ''): array
     {
         return CmLists::getInstance()->campaignmonitor->getList($listId);
     }
 
-    public function getActiveSubscribers($listId = '')
+    public function getActiveSubscribers($listId = ''): array
     {
         return CmLists::getInstance()->campaignmonitor->getActiveSubscribers($listId);
     }
 
-    public function getListsForEmail($email)
+    public function getListsForEmail($email): array
     {
         return CmLists::getInstance()->campaignmonitor->getListsForEmail($email);
     }

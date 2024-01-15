@@ -10,6 +10,7 @@ use clearbold\cmlists\CmLists;
 
 use Craft;
 use craft\web\Controller;
+use craft\web\Response;
 
 /**
  * View and manage your Campaign Monitor subscriber lists in your Craft CMS control panel.
@@ -23,12 +24,12 @@ class SubscribeController extends Controller
     // Protected Properties
     // =========================================================================
 
-    protected $allowAnonymous = ['index'];
+    protected array|int|bool $allowAnonymous = ['index'];
 
     /**
      * @returns redirect or JSON
      */
-    public function actionIndex()
+    public function actionIndex(): string|Response
     {
         $this->requirePostRequest();
         $request = Craft::$app->getRequest();
