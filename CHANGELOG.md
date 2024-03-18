@@ -1,3 +1,7 @@
+## 2.0.0 - 2024-02-15
+
+* Initial Craft 4 compatibility update
+
 ## 1.1.12 - 2021-06-17
 
 * Merged in better CM spam response logging

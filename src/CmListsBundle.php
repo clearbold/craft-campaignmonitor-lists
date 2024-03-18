@@ -17,7 +17,7 @@ use craft\web\assets\cp\CpAsset;
  */
 class CmListsBundle extends AssetBundle
 {
-    public function init()
+    public function init(): void
     {
         // define the path that your publishable resources live
         $this->sourcePath = '@clearbold/cmlists/resources';
